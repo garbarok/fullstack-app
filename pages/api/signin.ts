@@ -14,6 +14,7 @@ export default async function signin(
       },
     });
 
+    console.log(req.body.password, user?.password);
     const isUser = await comparePasswords(req.body.password, user?.password);
 
     if (isUser) {
@@ -28,10 +29,12 @@ export default async function signin(
         })
       );
       res.status(201);
-      res.end();
+      res.json({});
     }
+    res.status(401);
+    res.json({});
   } else {
     res.status(402);
-    res.end();
+    res.json({});
   }
 }
