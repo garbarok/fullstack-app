@@ -9,18 +9,18 @@ import Input from "./Input";
 
 const registerContent = {
   linkUrl: "/signin",
-  linkText: "Already have an account?",
-  header: "Create a new Account",
-  subheader: "Just a few things to get started",
-  buttonText: "Register",
+  linkText: "Already a member?",
+  header: "Create Your Account",
+  subheader: "Let's get you set up in a few easy steps",
+  buttonText: "Sign Up",
 };
 
 const signinContent = {
   linkUrl: "/register",
-  linkText: "Don't have an account?",
-  header: "Welcome Back",
-  subheader: "Enter your credentials to access your account",
-  buttonText: "Sign In",
+  linkText: "New here? Join us!",
+  header: "Welcome Back!",
+  subheader: "Sign in to access your account",
+  buttonText: "Log In",
 };
 
 const initial = { email: "", password: "", firstName: "", lastName: "" };
@@ -60,7 +60,7 @@ export default function AuthForm({ mode }: { mode: "register" | "signin" }) {
   const content = mode === "register" ? registerContent : signinContent;
 
   return (
-    <Card>
+    <Card className={mode === "signin" ? "w-1/3" : ""}>
       <div className="w-full">
         <div className="text-center">
           <h2 className="text-3xl mb-2">{content.header}</h2>
