@@ -25,42 +25,32 @@ const signinContent = {
 
 const initial = { email: "", password: "", firstName: "", lastName: "" };
 
-export default function AuthForm({ mode }: { mode: "register" | "signin" }) {
+const AuthForm = ({ mode }) => {
   const [formState, setFormState] = useState({ ...initial });
-  const [error, setError] = useState("");
-
   const router = useRouter();
-  const handleSubmit = useCallback(
-    async (e) => {
-      e.preventDefault();
 
-      try {
-        if (mode === "register") {
-          await register(formState);
-        } else {
-          await signin(formState);
-        }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-        router.replace("/home");
-      } catch (e) {
-        setError(`Could not ${mode}`);
-      } finally {
-        setFormState({ ...initial });
-        router.replace("/home");
+    try {
+      if (mode === "register") {
+        await register(formState);
+        console.log("yolo");
+      } else {
+        await signin(formState);
       }
-    },
-    [
-      formState.email,
-      formState.password,
-      formState.firstName,
-      formState.lastName,
-    ]
-  );
+
+      router.push("/home");
+      setFormState(initial);
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   const content = mode === "register" ? registerContent : signinContent;
 
   return (
-    <Card className={mode === "signin" ? "w-1/3" : ""}>
+    <Card>
       <div className="w-full">
         <div className="text-center">
           <h2 className="text-3xl mb-2">{content.header}</h2>
@@ -144,4 +134,6 @@ export default function AuthForm({ mode }: { mode: "register" | "signin" }) {
       </div>
     </Card>
   );
-}
+};
+
+export default AuthForm;
