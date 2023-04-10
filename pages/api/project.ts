@@ -11,5 +11,5 @@ export default async function handler(req, res) {
     },
   });
 
-  res.json({ data: { message: "hi" } });
+  res.json({ data: { message: "ok" } });
 }
