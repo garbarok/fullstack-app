@@ -1,5 +1,9 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Frontend Masters Course
+
+This project and [companion website](https://fullstack-v2-instructions.vercel.app/) are for the Frontend Masters course [Build a Fullstack App from Scratch (feat Next.js), v2](https://frontendmasters.com/courses/fullstack-app-next-v2/)
+
 ## Getting Started
 
 First, run the development server:
@@ -8,8 +12,6 @@ First, run the development server:
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -19,8 +21,6 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 [API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
 ## Learn More
 
