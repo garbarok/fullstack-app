@@ -2,7 +2,7 @@
 const nextConfig = {
   experimental: {
     appDir: true,
-    serverComponentsExternalPackages: ['bcrypt'],
+    serverComponentsExternalPackages: ["bcrypt"],
   },
   typescript: {
     ignoreBuildErrors: true,
@@ -10,6 +10,6 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

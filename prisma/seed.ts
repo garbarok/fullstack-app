@@ -12,14 +12,13 @@ const getRandomTaskStatus = () => {
 };
 
 async function main() {
-  
   const user = await db.user.upsert({
     where: { email: "user@email.com" },
     update: {},
     create: {
       email: "user@email.com",
-      firstName: "User",
-      lastName: "Person",
+      firstName: "Oscar",
+      lastName: "Gallego",
       password: await hashPassword("password"),
       projects: {
         create: new Array(5).fill(1).map((_, i) => ({

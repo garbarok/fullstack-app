@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { jwtVerify } from "jose";
 const PUBLIC_FILE = /\.(.*)$/;
 
@@ -11,8 +11,8 @@ const verifyJWT = async (jwt) => {
   return payload;
 };
 
-export default async function middleware(req, res) {
-  const {pathname} = req.nextUrl
+export default async function middleware(req: NextRequest) {
+  const { pathname } = req.nextUrl;
 
   if (
     pathname.startsWith("/_next") ||
@@ -25,21 +25,23 @@ export default async function middleware(req, res) {
     return NextResponse.next();
   }
 
-  const jwt = req.cookies.get(process.env.COOKIE_NAME)
-  console.log(jwt)
-
+  const jwt = req.cookies.get(process.env.COOKIE_NAME);
   if (!jwt) {
-    req.nextUrl.pathname = '/signin'
-    return NextResponse.redirect(req.nextUrl)
+    req.nextUrl.pathname = "/signin";
+    return NextResponse.redirect(req.nextUrl);
   }
 
   try {
-    await verifyJWT(jwt.value)
+    await verifyJWT(jwt.value);
+    // Redirect to /home if JWT is verified and the user is on /
+    if (pathname === "/") {
+      req.nextUrl.pathname = "/home";
+      return NextResponse.redirect(req.nextUrl);
+    }
+
     return NextResponse.next();
-  } catch(e) {
+  } catch (e) {
     req.nextUrl.pathname = "/signin";
     return NextResponse.redirect(req.nextUrl);
   }
 }
-
-
