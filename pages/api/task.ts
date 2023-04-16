@@ -11,17 +11,9 @@ export default async function newTask(
   await db.task.create({
     data: {
       name: req.body.name,
+      ownerId: user.id,
+      projectId: req.body.projectId,
       description: req.body.description,
-      owner: {
-        connect: {
-          id: user.id,
-        },
-      },
-      project: {
-        connect: {
-          id: req.body.projectId,
-        },
-      },
     },
   });
 
