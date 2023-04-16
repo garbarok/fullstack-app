@@ -24,7 +24,7 @@ const ProjectCard: FC<{ project: ProjectWithTasks }> = ({ project }) => {
   const progress = Math.ceil((completedCount / project.tasks.length) * 100);
 
   return (
-    <Card className="!px-6 !py-8 hover:scale-105 transition-all ease-in-out duration-200">
+    <Card className="!px-6 !py-8 transition-all duration-200 ease-in-out hover:scale-105">
       <div>
         <span className="text-sm text-gray-300">
           {formatDate(project.createdAt)}
@@ -38,20 +38,26 @@ const ProjectCard: FC<{ project: ProjectWithTasks }> = ({ project }) => {
           {completedCount}/{project.tasks.length} completed
         </span>
       </div>
-      <div>
-        <div className="w-full h-2 bg-violet-200 rounded-full mb-2">
-          <div
-            className={clsx(
-              "h-full text-center text-xs text-white bg-violet-600 rounded-full"
-            )}
-            style={{ width: `${progress}%` }}
-          ></div>
-        </div>
-        <div className="text-right">
-          <span className="text-sm text-gray-600 font-semibold">
-            {progress}%
-          </span>
-        </div>
+      <div className="h-8">
+        {" "}
+        {/* Add a div with a fixed height */}
+        {project.tasks.length > 0 && (
+          <>
+            <div className="mb-2 h-2 w-full rounded-full bg-violet-200">
+              <div
+                className={clsx(
+                  "h-full rounded-full bg-violet-600 text-center text-xs text-white"
+                )}
+                style={{ width: `${progress}%` }}
+              ></div>
+            </div>
+            <div className="text-right">
+              <span className="text-sm font-semibold text-gray-600">
+                {progress}%
+              </span>
+            </div>
+          </>
+        )}
       </div>
     </Card>
   );

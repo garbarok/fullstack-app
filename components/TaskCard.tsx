@@ -37,7 +37,9 @@ const TaskCard = async ({ title, tasks, id }) => {
     <Card>
       <div className="flex justify-between items-center">
         <div>
-          <span className="text-3xl text-gray-600">{title}</span>
+          <span className="text-3xl text-gray-600">
+            <h1>Last 5 Tasks</h1>
+          </span>
         </div>
         <div>
           <NewTask id={id} />
@@ -48,6 +50,7 @@ const TaskCard = async ({ title, tasks, id }) => {
           <div>
             {data.map(
               (task: {
+                id: string;
                 name:
                   | string
                   | number
@@ -67,7 +70,7 @@ const TaskCard = async ({ title, tasks, id }) => {
                   | null
                   | undefined;
               }) => (
-                <div className="py-2 ">
+                <div className="py-2 " key={task.id}>
                   <div>
                     <span className="text-gray-800">{task.name}</span>
                   </div>

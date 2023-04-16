@@ -20,7 +20,7 @@ export default async function ProjectPage({ params }) {
   const project = await getData(params.id);
 
   return (
-    <div className="h-full overflow-y-auto pr-6 w-1/1">
+    <div className="w-1/1 h-full overflow-y-auto pr-6">
       <TaskCard tasks={project.tasks} title={project.name} id={project.id} />
     </div>
   );

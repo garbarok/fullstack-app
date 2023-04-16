@@ -15,9 +15,9 @@ export default function AuthRootLayout({ children }) {
     <html lang="en">
       <head />
       <body
-        className={clsx("h-screen w-screen rainbow-mesh p-6", inter.className)}
+        className={clsx("rainbow-mesh h-screen w-screen p-6", inter.className)}
       >
-        <GlassPane className="w-full h-full flex items-center justify-center">
+        <GlassPane className="flex h-full w-full items-center justify-center">
           {children}
         </GlassPane>
       </body>

@@ -9,20 +9,20 @@ const links = [
   {
     label: "Calendar",
     icon: "Calendar",
-    link: "/",
+    link: "/calendar",
   },
-  { label: "Profile", icon: "User", link: "/" },
+  { label: "Profile", icon: "User", link: "/profile" },
   {
     label: "Settings",
     icon: "Settings",
-    link: "/",
+    link: "/settings",
   },
 ];
 
 const Sidebar = () => {
   return (
-    <Card className="h-full w-40 flex items-center justify-between flex-wrap">
-      <div className="w-full flex justify-center items-center">
+    <Card className="flex h-full w-40 flex-wrap items-center justify-between">
+      <div className="flex w-full items-center justify-center">
         <Link href="/">
           <Image src={logo} alt="GoalGlider logo" priority className="w-auto" />
         </Link>

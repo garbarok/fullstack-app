@@ -35,7 +35,6 @@ const AuthForm = ({ mode }) => {
     try {
       if (mode === "register") {
         await register(formState);
-        console.log("yolo");
       } else {
         await signin(formState);
       }
