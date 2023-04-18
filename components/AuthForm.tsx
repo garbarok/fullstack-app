@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import Card from "./Card";
 import Button from "./Button";
 import Input from "./Input";
-import Loader from "./loader";
+import Loader from "./Loader";
 
 const registerContent = {
   linkUrl: "/signin",
