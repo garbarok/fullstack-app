@@ -8,7 +8,6 @@ import { db } from "@/lib/db";
 import { cookies } from "next/headers";
 import Link from "next/link";
 import { Suspense } from "react";
-import NewTask from "@/components/NewTask";
 
 const getData = async () => {
   const user = await getUserFromCookie(cookies());

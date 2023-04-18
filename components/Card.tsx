@@ -1,12 +1,18 @@
 import clsx from "clsx";
 
-const Card = ({ className, children }) => {
+type CardProps = {
+  className?: string;
+  children: React.ReactNode;
+};
+
+const Card = ({ className, children }: CardProps) => {
   return (
     <div
       className={clsx(
-        "rounded-3xl px-10 py-4 drop-shadow-xl bg-white",
+        "rounded-3xl bg-white px-10 py-4 drop-shadow-xl",
         className
       )}
+      suppressHydrationWarning={true}
     >
       {children}
     </div>

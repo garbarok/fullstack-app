@@ -52,33 +52,33 @@ const AuthForm = ({ mode }) => {
     <Card>
       <div className="w-full">
         <div className="text-center">
-          <h2 className="text-3xl mb-2">{content.header}</h2>
+          <h2 className="mb-2 text-3xl">{content.header}</h2>
           <p className="tex-lg text-black/25">{content.subheader}</p>
         </div>
-        <form onSubmit={handleSubmit} className="py-10 w-full">
+        <form onSubmit={handleSubmit} className="w-full py-10">
           {mode === "register" && (
-            <div className="flex mb-8 justify-between">
+            <div className="mb-8 flex justify-between">
               <div className="pr-2">
-                <div className="text-lg mb-4 ml-2 text-black/50">
+                <div className="mb-4 ml-2 text-lg text-black/50">
                   First Name
                 </div>
                 <Input
                   required
                   placeholder="First Name"
                   value={formState.firstName}
-                  className="border-solid border-gray border-2 px-6 py-2 text-lg rounded-3xl w-full"
+                  className="border-gray w-full rounded-3xl border-2 border-solid px-6 py-2 text-lg"
                   onChange={(e) =>
                     setFormState((s) => ({ ...s, firstName: e.target.value }))
                   }
                 />
               </div>
               <div className="pl-2">
-                <div className="text-lg mb-4 ml-2 text-black/50">Last Name</div>
+                <div className="mb-4 ml-2 text-lg text-black/50">Last Name</div>
                 <Input
                   required
                   placeholder="Last Name"
                   value={formState.lastName}
-                  className="border-solid border-gray border-2 px-6 py-2 text-lg rounded-3xl w-full"
+                  className="border-gray w-full rounded-3xl border-2 border-solid px-6 py-2 text-lg"
                   onChange={(e) =>
                     setFormState((s) => ({ ...s, lastName: e.target.value }))
                   }
@@ -87,26 +87,26 @@ const AuthForm = ({ mode }) => {
             </div>
           )}
           <div className="mb-8">
-            <div className="text-lg mb-4 ml-2 text-black/50">Email</div>
+            <div className="mb-4 ml-2 text-lg text-black/50">Email</div>
             <Input
               required
               type="email"
               placeholder="Email"
               value={formState.email}
-              className="border-solid border-gray border-2 px-6 py-2 text-lg rounded-3xl w-full"
+              className="border-gray w-full rounded-3xl border-2 border-solid px-6 py-2 text-lg"
               onChange={(e) =>
                 setFormState((s) => ({ ...s, email: e.target.value }))
               }
             />
           </div>
           <div className="mb-8">
-            <div className="text-lg mb-4 ml-2 text-black/50">Password</div>
+            <div className="mb-4 ml-2 text-lg text-black/50">Password</div>
             <Input
               required
               value={formState.password}
               type="password"
               placeholder="Password"
-              className="border-solid border-gray border-2 px-6 py-2 text-lg rounded-3xl w-full"
+              className="border-gray w-full rounded-3xl border-2 border-solid px-6 py-2 text-lg"
               onChange={(e) =>
                 setFormState((s) => ({ ...s, password: e.target.value }))
               }
@@ -117,7 +117,7 @@ const AuthForm = ({ mode }) => {
               <span>
                 <Link
                   href={content.linkUrl}
-                  className="text-blue-600 font-bold"
+                  className="font-bold text-blue-600"
                 >
                   {content.linkText}
                 </Link>
