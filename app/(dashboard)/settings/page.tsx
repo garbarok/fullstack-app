@@ -12,7 +12,7 @@ export default function Settings() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
       });
-      router.push("/");
+      router.push("/signin");
     } catch (e) {
       console.error(e);
     }
