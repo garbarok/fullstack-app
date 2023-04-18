@@ -1,6 +1,6 @@
 import Card from "@/components/Card";
 
-export default function HomePageLoader() {
+export default function Loader() {
   return (
     <div className="flex h-full w-full items-center justify-center">
       <Card className="">
